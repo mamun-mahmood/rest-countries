@@ -1,10 +1,13 @@
 // country controller
 const Country = require("../models/country");
 const getAllCountries = async (req, res) => {
+  const { page, limit } = req.query;
   try {
-    const countries = await Country.find({});
+    const countries = await Country.find({})
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
     res.send({
-      message: "All countries",
+      message: `Countries page ${page}, limit ${limit}`,
       status: 200,
       success: true,
       countries,

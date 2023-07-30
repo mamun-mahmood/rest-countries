@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const countryController = require("../controllers/country");
-router.get("/all", countryController.getAllCountries);
+router.get("/all/countries", countryController.getAllCountries);
 router.get("/country/:id/countries", countryController.getCountryById);
 router.post("/", countryController.createCountry);
 router.put("/country/:id/countries", countryController.updateCountry);
